@@ -59,7 +59,7 @@ int main()
 {
   unsigned short int month;
   Date now;
-  scanf("%d", &month);
+  scanf("%u", &month);
   setMonth(&now, month);
   printf("%s\n", getMonthName(&now));
 
