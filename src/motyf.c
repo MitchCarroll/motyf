@@ -7,7 +7,7 @@ typedef struct
 
 void setMonth(Date *self, int i)
 {
-  self->month = i;
+  self->month = i % 12;
 }
 
 char* getMonthName(Date *self)
@@ -57,9 +57,10 @@ char* getMonthName(Date *self)
 
 int main()
 {
+  int month;
   Date now;
-  scanf("%d", &now.month);
-  setMonth(&now, now.month);
+  scanf("%d", month);
+  setMonth(&now, month);
   printf("%s\n", getMonthName(&now));
 
   return 0;
