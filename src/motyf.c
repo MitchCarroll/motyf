@@ -57,9 +57,9 @@ char* getMonthName(Date *self)
 
 int main()
 {
-  int month;
+  unsigned short int month;
   Date now;
-  scanf("%d", month);
+  scanf("%d", &month);
   setMonth(&now, month);
   printf("%s\n", getMonthName(&now));
 
