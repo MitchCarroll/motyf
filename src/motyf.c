@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct
 {
@@ -55,13 +56,26 @@ char* getMonthName(Date *self)
   }
 }
 
-int main()
+int main(int argc, char **argv)
 {
   unsigned short int month;
+  char *endptr;
   Date now;
-  scanf("%u", &month);
-  setMonth(&now, month);
-  printf("%s\n", getMonthName(&now));
+  if(argc > 0)
+  {
+     int i;
+     for(i=1; i<argc; i++)
+     {
+        setMonth(&now, strtol(argv[i], &endptr, 10));
+        printf("%s\n", getMonthName(&now));
+     }
+  }
+  else
+  {
+     scanf("%u", &month);
+     setMonth(&now, month);
+     printf("%s\n", getMonthName(&now));
+  }
 
   return 0;
 }
